@@ -17,7 +17,10 @@
 
         }
 
-        
+        public void incrementearQteMovimentos()
+        {
+            qteMovimentos++;
+        }
     }
 }
 
