@@ -8,6 +8,7 @@ namespace xadrez01
         public Tabuleiro tab { get; private set; }
         private int turno;
         private Cor jogadorAtual;
+        public  bool termianda { get; private set; }
 
         public Partidas()
         {
