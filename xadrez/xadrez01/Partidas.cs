@@ -200,10 +200,11 @@ namespace xadrez01
                     {
                         if (mat[i, j])
                         {
+                            Posicao origem = x.posicao;
                             Posicao destino = new Posicao(i, j);
                             Peca pecaCapturada = executaMovimento(x.posicao, new Posicao(i, j));
                             bool testeXeque = estaEmXeque(cor);
-                            desfazMovimento(x.posicao, destino, pecaCapturada);
+                            desfazMovimento(origem, destino, pecaCapturada);
                             if (!testeXeque)
                             {
                                 return false;
@@ -229,8 +230,8 @@ namespace xadrez01
             colocarNovaPeca('d', 1, new Rei(tab, Cor.Branco));
             colocarNovaPeca('h', 7, new Torre(tab, Cor.Branco));
 
-            colocarNovaPeca('a', 8, new Torre(tab, Cor.Preto));
-            colocarNovaPeca('b', 8, new Rei(tab, Cor.Preto));
+            colocarNovaPeca('a', 8, new Rei(tab, Cor.Preto));
+            colocarNovaPeca('b', 8, new Torre(tab, Cor.Preto));
 
         }
     }
