@@ -1,6 +1,6 @@
 ﻿using tabuleiro;
 
-namespace xadrez01
+namespace xadrez
 {
 
     class Dama : Peca

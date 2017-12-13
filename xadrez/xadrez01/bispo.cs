@@ -1,10 +1,13 @@
 ﻿using tabuleiro;
 
-namespace xadrez01
+namespace xadrez
 {
+
     class Bispo : Peca
     {
-        public Bispo(Tabuleiro tab, Cor cor) : base(tab, cor) {
+
+        public Bispo(Tabuleiro tab, Cor cor) : base(tab, cor)
+        {
         }
 
         public override string ToString()
@@ -75,5 +78,4 @@ namespace xadrez01
             return mat;
         }
     }
-   
 }

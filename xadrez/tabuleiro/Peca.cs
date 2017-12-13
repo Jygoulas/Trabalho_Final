@@ -17,13 +17,13 @@
 
         }
 
-        public void incrementarQteMovientos()
+        public void incrementarQteMovimentos()
         {
             qteMovimentos++;
         }
 
 
-        public void decrementarQteMovientos()
+        public void decrementarQteMovimentos()
         {
             qteMovimentos--;
         }

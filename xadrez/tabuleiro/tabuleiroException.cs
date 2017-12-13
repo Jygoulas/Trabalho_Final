@@ -1,11 +1,12 @@
 ﻿using System;
+
 namespace tabuleiro
 {
-    class tabuleiroException : Exception
+    class TabuleiroException : Exception
     {
-        public tabuleiroException(string msg) : base (msg)
-        {
 
+        public TabuleiroException(string msg) : base(msg)
+        {
         }
     }
 }

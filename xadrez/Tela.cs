@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using tabuleiro;
-using xadrez01;
+using xadrez;
 
 namespace xadrez{
     class Tela{
 
-        public static void imprimirPartida(Partidas partida)
+        public static void imprimirPartida(PartidaDeXadrez partida)
         {
             imprimirTabuleiro(partida.tab);
             Console.WriteLine();
@@ -28,16 +28,16 @@ namespace xadrez{
             }
         }
 
-        public static void imprimirPecasCapturadas(Partidas partida)
+        public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
         {
             Console.WriteLine("Peças Capturadas: ");
             Console.Write("Brancas: ");
-            imprimirConjunto(partida.pecasCapturadas(Cor.Branco));
+            imprimirConjunto(partida.pecasCapturadas(Cor.Branca));
             Console.WriteLine();
             Console.Write("Pretas: ");
             ConsoleColor aux = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Yellow;
-            imprimirConjunto(partida.pecasCapturadas(Cor.Preto));
+            imprimirConjunto(partida.pecasCapturadas(Cor.Preta));
             Console.ForegroundColor = aux;
             Console.WriteLine();
         }
@@ -110,7 +110,7 @@ namespace xadrez{
             else
             {
 
-                if (peca.cor == Cor.Branco)
+                if (peca.cor == Cor.Branca)
                 {
                     Console.Write(peca);
 
