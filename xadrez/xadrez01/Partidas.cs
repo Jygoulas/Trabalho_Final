@@ -6,15 +6,16 @@ namespace xadrez01
     class Partidas
     {
         public Tabuleiro tab { get; private set; }
-        private int turno;
-        private Cor jogadorAtual;
-        public  bool termianda { get; private set; }
+        public int turno { get; private set; }
+        public Cor jogadorAtual { get; private set; }
+        public  bool terminada { get; private set; }
 
         public Partidas()
         {
             tab = new Tabuleiro(8, 8);
             turno = 1;
             jogadorAtual = Cor.Branco;
+            terminada = false;
             colocarPecas();
         }
 
@@ -24,6 +25,50 @@ namespace xadrez01
                        Peca pecaCapturada =  tab.retirarPeca(destino);
             tab.colocarPeca(p, destino);
         } 
+
+        public void realizaJogada(Posicao origem, Posicao destino)
+        {
+            executaMovimento(origem, destino);
+            turno++;
+            mudaJogador();
+
+        }
+
+        public void validarPosicaoDeOrigem(Posicao pos)
+        {
+            if (tab.peca(pos) == null)
+            {
+                throw new tabuleiroException("Não existe peça na posiçaõ de origem escolhida!");
+            }
+            if (jogadorAtual != tab.peca(pos).cor)
+            {
+                throw new tabuleiroException("A peça de origem não é sua!");
+            }
+            if (!tab.peca(pos).existeMovimentosPossiveis())
+            {
+                throw new tabuleiroException("Não há movimentos possiveis para a peça de origem escolhida!");
+            }
+        }
+        public void validarPosicaodestino(Posicao origem, Posicao destino)
+        {
+            if (!tab.peca(origem).podeMoverPara(destino))
+            {
+                throw new tabuleiroException("Posição de destino inválida!");
+            }
+        }
+
+
+        private void mudaJogador()
+        {
+            if (jogadorAtual == Cor.Branco)
+            {
+                jogadorAtual = Cor.Preto;
+            }
+            else
+            {
+                jogadorAtual = Cor.Branco;
+            }
+        }
         private void colocarPecas() {
             tab.colocarPeca(new Torre(tab, Cor.Branco), new PosicaoXadrez('c', 1).toPosicao());
             tab.colocarPeca(new Torre(tab, Cor.Branco), new PosicaoXadrez('c', 2).toPosicao());
